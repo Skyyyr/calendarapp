@@ -1,0 +1,46 @@
+{%  extends 'calendar_app/base.html' %}
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <p>
+                    Starts at:
+                    <small class="text-muted">{{ object.starts_at|date:'F d, Y, P' }}</small>
+                </p>
+                <p>
+                    Ends at:
+                    <small class="text-muted">{{ object.ends_at|date:'F d, Y, P' }}</small>
+                </p>
+                <p>
+                    Created On:
+                    <small class="text-muted">{{ object.created_at|date:'F d, Y, P' }}</small>
+                </p>
+                <h3>
+                    Details:
+                </h3>
+                <p>
+                    {{ object.description }}
+                </p>
+            </div>
+        </div>
+        <section>
+            <a class="btn btn-outline-secondary"
+                href="{%  url 'page-home' %}">
+                Home
+            </a>
+            <a class="btn btn-outline-secondary"
+                href="{%  url 'page-new' %}">
+                Create New Event
+            </a>
+            <a class="btn btn-outline-secondary"
+                href="{%  url 'page-update' object.id %}">
+                Update Event
+            </a>
+            <a class="btn btn-outline-secondary"
+                href="{%  url 'page-delete' object.id %}">
+                Delete Event
+            </a>
+        </section>
+    </article>
+{% endblock %}

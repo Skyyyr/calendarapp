@@ -1,0 +1,24 @@
+{%  extends 'calendar_app/base.html' %}
+
+{% block content %}
+    <h1>
+        Calendar App Home page!
+    </h1>
+    {% if events %}
+        <div class="list-group">
+            {% for event in events %}
+                <a href="{% url 'page-detail' event.id %}" class="list-group-item list-group-item-action">{{ event.name }}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>
+            There are no events to display.
+        </p>
+    {% endif %}
+    <section>
+        <a class="btn btn-outline-secondary"
+            href="{%  url 'page-new' %}">
+            Create New Event
+        </a>
+    </section>
+{% endblock %}
